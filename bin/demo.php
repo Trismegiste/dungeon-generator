@@ -4,7 +4,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $generator = new Trismegiste\MapGen\PackedRoom();
 
-$map = $generator->generate(30, 10, 1);
+$map = $generator->generate(20, 20, 0, 0.5, true);
 
 foreach ($map as $col) {
     foreach ($col as $cell) {

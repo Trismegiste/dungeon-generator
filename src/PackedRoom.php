@@ -3,7 +3,10 @@
 namespace Trismegiste\MapGen;
 
 /**
- * PackedRoom
+ * PackedRoom : a bunch of packed rooms. Useful for dungeons, space stations and so on.
+ * 
+ * Warning : Black Box !
+ * This is my (dumb) port of javascript library https://github.com/samclee/dungeonerator
  */
 class PackedRoom
 {
@@ -213,6 +216,7 @@ class PackedRoom
      * Generating $num_rms rooms of size $rm_sz 
      * tiles with $gap tiles in between.
      * Probability of halls occuring is $merge_prob * 100 percent.
+     * $trim removes unused spaces around the set of rooms (default false)
      */
     public function generate($num_rms, $rm_sz, $gap = 0, $merge_prob = 0.25, $trim = false)
     {

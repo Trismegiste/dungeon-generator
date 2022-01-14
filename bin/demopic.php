@@ -4,7 +4,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $generator = new Trismegiste\MapGen\PackedRoom();
 
-$map = $generator->generate(20, 20, 1, 0.8, true);
+$map = $generator->generate(20, 20, 1, 0.8, false);
 $width = count($map);
 $height = count($map[0]);
 $target = imagecreatetruecolor($width, $height);
@@ -12,7 +12,9 @@ $target = imagecreatetruecolor($width, $height);
 $color = [
     '.' => imagecolorallocate($target, 255, 255, 255),
     '~' => imagecolorallocate($target, 0, 0, 0),
-    '#' => imagecolorallocate($target, 255, 0, 0),
+    '|' => imagecolorallocate($target, 255, 0, 0),
+    '-' => imagecolorallocate($target, 255, 0, 0),
+    '#' => imagecolorallocate($target, 0, 0, 255),
 ];
 
 foreach ($map as $x => $col) {
@@ -22,4 +24,3 @@ foreach ($map as $x => $col) {
 }
 
 imagepng($target, 'dump.png');
-

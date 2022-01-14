@@ -86,12 +86,12 @@ class PackedRoom
 
         // draw main line(s)
         for ($i = $lft_most; $i <= $rgt_most; $i++) {
-            $map[$m_l1->y + floor($rm_sz / 2)][$i] = '.';
+            $map[$m_l1->y + floor($rm_sz / 2)][$i] = '|';
         }
 
         if ($rm_sz % 2 === 0) {
             for ($i = $lft_most; $i <= $rgt_most; $i++) {
-                $map[$m_l1->y + floor($rm_sz / 2) - 1][$i] = '.';
+                $map[$m_l1->y + floor($rm_sz / 2) - 1][$i] = '|';
             }
         }
     }
@@ -110,12 +110,12 @@ class PackedRoom
 
         // draw main line(s)
         for ($i = $top_most; $i <= $btm_most; $i++) {
-            $map[$i][$m_l1->x + floor($rm_sz / 2)] = '.';
+            $map[$i][$m_l1->x + floor($rm_sz / 2)] = '-';
         }
 
         if ($rm_sz % 2 === 0) {
             for ($i = $top_most; $i <= $btm_most; $i++) {
-                $map[$i][$m_l1->x + floor($rm_sz / 2) - 1] = '.';
+                $map[$i][$m_l1->x + floor($rm_sz / 2) - 1] = '-';
             }
         }
     }
@@ -291,7 +291,7 @@ class PackedRoom
 
                     if ($map_tile === '#') {
                         $map[$map_bnd_top + $row][$map_bnd_lft + $col] = '$';
-                    } else if ($map_tile === '.') {
+                    } else if (\in_array($map_tile, ['.', '|', '-'])) {
                         $map[$map_bnd_top + $row][$map_bnd_lft + $col] = '*';
                     } else if ($map_tile === '~') {
                         $map[$map_bnd_top + $row][$map_bnd_lft + $col] = '*';
